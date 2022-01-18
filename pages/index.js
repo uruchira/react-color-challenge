@@ -40,13 +40,13 @@ export default function Home() {
             <button onClick={fetchApp1Colors}>Load Colors</button>
           </div>
 
-          <div className={styles.swatcheList}>
-            {colorSet1.map((colorSwatche) => {
+          <div className={styles.colorList}>
+            {colorSet1.map((c) => {
               return (
                 <div
-                  key={colorSwatche.id}
-                  className={styles.swatche}
-                  style={{ backgroundColor: colorSwatche.value }}
+                  key={c.id}
+                  className={styles.colorItem}
+                  style={{ backgroundColor: c.value }}
                 />
               );
             })}
@@ -58,13 +58,13 @@ export default function Home() {
             <h2 className={styles.title}>Stage 2</h2>
             <button onClick={fetchApp2Colors}>Load Colors</button>
           </div>
-          <div className={styles.swatcheList}>
-            {colorSet2.map((colorSwatche) => {
+          <div className={styles.colorList}>
+            {colorSet2.map((c) => {
               return (
                 <div
-                  key={colorSwatche.id}
-                  className={styles.swatche}
-                  style={{ backgroundColor: colorSwatche.value }}
+                  key={c.id}
+                  className={styles.colorItem}
+                  style={{ backgroundColor: c.value }}
                 />
               );
             })}

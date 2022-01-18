@@ -16,17 +16,25 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Colors Challenge
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Stage 1
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Backend service sends a color swatch which consists only RGB and HSL.
 
-## Learn More
+### Stage 2
 
-To learn more about Next.js, take a look at the following resources:
+Backend service sends a color swatch which consists RGB, HSL, and other type. For viewing purposes I use HEX as a new color model. You can check how a new type can add to the frontend. I also add the BRGB (the color swatch that mentioned in technical test) and how to access its values and use it.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How-To
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+What changes need to be done in order to access new color space?
+
+```bash
+From root, Go to: helpers -> appColors.js
+```
+
+- Update the 'colorSpaceSetter' object adding key value pair where key = 'type' of color space, value = 'a function' that generate the
+  CSS value from the new color space.
+- Implement the function that generate the CSS value from the new color space.
+- Used two different GET APIs to show the difference.

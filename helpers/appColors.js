@@ -1,7 +1,7 @@
 /*
-  Current Standard Color Model (CSS3)
+  Current Standard Color Space (CSS3)
   You need to add a function in order to get the
-  CSS value from the new color model, e.g. rgb()
+  CSS value from the new color space, e.g. rgb()
 */
 
 const setRGBValue = (rgbObject) => {
@@ -19,9 +19,9 @@ const setHEXValue = (hexObject) => {
 };
 
 /*
-  New Standard Color Model (CSS4)
+  New Standard Color Space (CSS4)
   You need to add a function in order to get the
-  CSS value from the new color model, e.g. hwb()
+  CSS value from the new color space, e.g. hwb()
 */
 const setHWBValue = (hwbObject) => {
   const { hue, whiteness, blackness } = hwbObject;
@@ -29,12 +29,12 @@ const setHWBValue = (hwbObject) => {
 };
 
 /*
-  Custom Color Model 
+  Custom Color Space 
   BRGB : The example given in technical test.
   Here also need to add a function in order to get the
-  CSS value from the new color model 'brgb'. And not like
+  CSS value from the new color space 'brgb'. And not like
   previous ones you need to convert it into standard color
-  model values in order to access by CSS rules.
+  space values in order to access by CSS rules. e.g. toRGB()
 */
 /*
 const setBRGBValue = (brgbObject) => {
@@ -46,10 +46,10 @@ const setBRGBValue = (brgbObject) => {
 // ------------------------------------------------------------------------
 
 /*
-  You can add the 'type' of the new color model (e.g. hwb, cmyk, or 'brgb')
+  You can add the 'type' of the new color space (e.g. hwb, cmyk, or 'brgb')
   along with its relevant function that gets CSS value with correct format.
 */
-const colorModelSetter = {
+const colorSpaceSetter = {
   rgb: setRGBValue,
   hsl: setHSLValue,
   hex: setHEXValue,
@@ -67,19 +67,19 @@ const colorModelSetter = {
 // Project Team 1
 export const getColorValuesForProject1 = (colours) => {
   return colours.map((colour) => {
-    const colorModel = colorModelSetter[colour.type];
-    return { id: colour.id, value: colorModel(colour) };
+    const colorSpace = colorSpaceSetter[colour.type];
+    return { id: colour.id, value: colorSpace(colour) };
   });
 };
 
 // Project Team 2
 export const getColorValuesForProject2 = (colorPalettes) => {
   return colorPalettes.map((colorPalette) => {
-    const colorModel = colorModelSetter[colorPalette.type];
+    const colorSpace = colorSpaceSetter[colorPalette.type];
     return {
       id: colour.id,
       type: colorPalette.type,
-      value: colorModel(colour),
+      value: colorSpace(colour),
     };
   });
 };
