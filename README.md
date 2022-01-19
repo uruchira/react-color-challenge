@@ -30,6 +30,8 @@ Backend service sends a color swatch which consists RGB, HSL, and other type. Fo
 
 What changes need to be done in order to access new color space?
 
+No need to do any changes from Component Level, All changes can be done inside helper functions.
+
 ```bash
 From root, Go to: helpers -> appColors.js
 ```

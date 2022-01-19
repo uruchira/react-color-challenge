@@ -1,7 +1,8 @@
 /*
-  Current Standard Color Space (CSS3)
+  Current Standard Color Space (CSS3 Property)
+
   You need to add a function in order to get the
-  CSS value from the new color space, e.g. rgb()
+  CSS value from the relevant color space, e.g. rgb
 */
 
 const setRGBValue = (rgbObject) => {
@@ -14,14 +15,20 @@ const setHSLValue = (hslObject) => {
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 };
 
+// This is not a correct example for color space, but it is added
+// in order to show how a new color space working visually in Home Page.
 const setHEXValue = (hexObject) => {
   return hexObject.value;
 };
 
 /*
-  New Standard Color Space (CSS4)
-  You need to add a function in order to get the
-  CSS value from the new color space, e.g. hwb()
+  New Standard Color Space (CSS4 Property)
+
+  Here also, you need to add a function to get
+  CSS value from the new color space object, e.g. hwb
+  https://www.w3schools.com/colors/colors_hwb.asp
+
+  ***This function is added to show the extensibility
 */
 const setHWBValue = (hwbObject) => {
   const { hue, whiteness, blackness } = hwbObject;
@@ -29,14 +36,14 @@ const setHWBValue = (hwbObject) => {
 };
 
 /*
-  Custom Color Space 
-  BRGB : The example given in technical test.
-  Here also need to add a function in order to get the
-  CSS value from the new color space 'brgb'. And not like
-  previous ones you need to convert it into standard color
-  space values in order to access by CSS rules. e.g. toRGB()
-*/
-/*
+  Custom Color Space (Example given in technical test)
+
+  Not like previous one, here you need to convert it into 
+  standard color space values in order to get CSS value. 
+  e.g. toRGB(), https://www.w3schools.com/lib/w3color.js
+  
+  ***This function is added to show the extensibility
+
 const setBRGBValue = (brgbObject) => {
   const { b_red, b_green, b_blue } = toRGB(brgbObject);
   return `rgb(${b_red}, ${b_green}, ${b_blue})`;
@@ -46,8 +53,8 @@ const setBRGBValue = (brgbObject) => {
 // ------------------------------------------------------------------------
 
 /*
-  You can add the 'type' of the new color space (e.g. hwb, cmyk, or 'brgb')
-  along with its relevant function that gets CSS value with correct format.
+  You can add the 'type' of the color space (e.g. rgb, hwb, or 'brgb')
+  along with its relevant function reference that gets CSS value.
 */
 const colorSpaceSetter = {
   rgb: setRGBValue,
@@ -72,7 +79,14 @@ export const getColorValuesForProject1 = (colours) => {
   });
 };
 
+/*
+  This can be found in a different project, inside their
+  helper functions section, so need to do any Component
+  level change to access new type of color spaces. 
+*/
+
 // Project Team 2
+/* 
 export const getColorValuesForProject2 = (colorPalettes) => {
   return colorPalettes.map((colorPalette) => {
     const colorSpace = colorSpaceSetter[colorPalette.type];
@@ -83,3 +97,4 @@ export const getColorValuesForProject2 = (colorPalettes) => {
     };
   });
 };
+*/
