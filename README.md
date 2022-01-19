@@ -26,7 +26,7 @@ Backend service sends a color swatch which consists only RGB and HSL.
 
 Backend service sends a color swatch which consists RGB, HSL, and other type. For viewing purposes I use HEX as a new color model. You can check how a new type can add to the frontend. I also add the BRGB (the color swatch that mentioned in technical test) and how to access its values and use it.
 
-## How-To
+### How-To
 
 What changes need to be done in order to access new color space?
 
